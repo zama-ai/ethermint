@@ -14,4 +14,6 @@ type EVMConfig struct {
 	ChainConfig *params.ChainConfig
 	CoinBase    common.Address
 	BaseFee     *big.Int
+	/// A flag to denote that execution was triggered by an EthCall RPC.
+	EthCall bool
 }
