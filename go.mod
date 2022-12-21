@@ -165,3 +165,5 @@ replace (
 )
 
 replace github.com/confio/ics23/go => github.com/cosmos/cosmos-sdk/ics23/go v0.8.0
+
+replace github.com/ethereum/go-ethereum v1.10.19 => ../go-ethereum
