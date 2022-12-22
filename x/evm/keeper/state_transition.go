@@ -95,7 +95,6 @@ func (k *Keeper) NewEVM(
 	vmConfig := k.VMConfig(ctx, msg, cfg, tracer)
 	vm := vm.NewEVM(blockCtx, txCtx, stateDB, cfg.ChainConfig, vmConfig)
 	vm.EthCall = cfg.EthCall
-	vm.EthEstimateGas = cfg.EthEstimateGas
 	return vm
 }
 
@@ -359,6 +358,7 @@ func (k *Keeper) ApplyMessageWithConfig(ctx sdk.Context, msg core.Message, trace
 
 	stateDB := statedb.New(ctx, k, txConfig)
 	evm := k.NewEVM(ctx, msg, cfg, tracer, stateDB)
+	evm.Commit = commit
 
 	leftoverGas := msg.Gas()
 	// Allow the tracer captures the tx level events, mainly the gas consumption.

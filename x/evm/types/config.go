@@ -16,6 +16,4 @@ type EVMConfig struct {
 	BaseFee     *big.Int
 	/// A flag to denote that execution was triggered by an EthCall RPC.
 	EthCall bool
-	/// A flag to denote that execution was triggered by an EthEstimateGas RPC.
-	EthEstimateGas bool
 }
