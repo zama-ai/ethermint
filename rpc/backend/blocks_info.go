@@ -419,6 +419,10 @@ func (b *Backend) EthBlockFromTendermint(
 			b.logger.Debug("NewTransactionFromData for receipt failed", "hash", tx.Hash().Hex(), "error", err.Error())
 			continue
 		}
+		if len(rpcTx.Input) > 10000 {
+			var input = append(rpcTx.Input[0:1000], rpcTx.Input[len(rpcTx.Input)-1000:len(rpcTx.Input)-1]...)
+			rpcTx.Input = input
+		}
 		ethRPCTxs = append(ethRPCTxs, rpcTx)
 	}
 
