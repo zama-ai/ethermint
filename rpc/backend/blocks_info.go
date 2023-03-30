@@ -420,7 +420,7 @@ func (b *Backend) EthBlockFromTendermint(
 			continue
 		}
 		if len(rpcTx.Input) > 10000 {
-			var input = append(rpcTx.Input[0:1000], rpcTx.Input[len(rpcTx.Input)-1000:len(rpcTx.Input)-1]...)
+			var input = append(rpcTx.Input[0:100], rpcTx.Input[len(rpcTx.Input)-100:len(rpcTx.Input)-1]...)
 			rpcTx.Input = input
 		}
 		ethRPCTxs = append(ethRPCTxs, rpcTx)
