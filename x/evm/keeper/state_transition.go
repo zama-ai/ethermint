@@ -95,6 +95,7 @@ func (k *Keeper) NewEVM(
 	vmConfig := k.VMConfig(ctx, msg, cfg, tracer)
 	vm := vm.NewEVM(blockCtx, txCtx, stateDB, cfg.ChainConfig, vmConfig)
 	vm.EthCall = cfg.EthCall
+	vm.Logger = ctx.Logger()
 	return vm
 }
 
