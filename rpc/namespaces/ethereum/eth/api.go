@@ -2,6 +2,7 @@ package eth
 
 import (
 	"context"
+	"errors"
 	"math/big"
 
 	"github.com/ethereum/go-ethereum/signer/core/apitypes"
@@ -237,7 +238,8 @@ func (e *PublicAPI) SendRawTransaction(data hexutil.Bytes) (common.Hash, error) 
 // SendTransaction sends an Ethereum transaction.
 func (e *PublicAPI) SendTransaction(args evmtypes.TransactionArgs) (common.Hash, error) {
 	e.logger.Debug("eth_sendTransaction", "args", args.String())
-	return e.backend.SendTransaction(args)
+	e.logger.Info("eth_sendTransaction not supported")
+	return common.Hash{}, errors.New("not supported")
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -247,7 +249,7 @@ func (e *PublicAPI) SendTransaction(args evmtypes.TransactionArgs) (common.Hash,
 // Accounts returns the list of accounts available to this node.
 func (e *PublicAPI) Accounts() ([]common.Address, error) {
 	e.logger.Debug("eth_accounts")
-	return e.backend.Accounts()
+	return []common.Address{}, nil
 }
 
 // GetBalance returns the provided account's balance up to the provided block number.
@@ -438,7 +440,8 @@ func (e *PublicAPI) Coinbase() (string, error) {
 // Sign signs the provided data using the private key of address via Geth's signature standard.
 func (e *PublicAPI) Sign(address common.Address, data hexutil.Bytes) (hexutil.Bytes, error) {
 	e.logger.Debug("eth_sign", "address", address.Hex(), "data", common.Bytes2Hex(data))
-	return e.backend.Sign(address, data)
+	e.logger.Info("eth_sign not supported")
+	return hexutil.Bytes{}, errors.New("not supported")
 }
 
 // GetTransactionLogs returns the logs given a transaction hash.

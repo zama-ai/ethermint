@@ -64,7 +64,7 @@ func (api *PrivateAccountAPI) ImportRawKey(privkey, password string) (common.Add
 // ListAccounts will return a list of addresses for accounts this node manages.
 func (api *PrivateAccountAPI) ListAccounts() ([]common.Address, error) {
 	api.logger.Debug("personal_listAccounts")
-	return api.backend.ListAccounts()
+	return []common.Address{}, nil
 }
 
 // LockAccount will lock the account associated with the given address when it's unlocked.
