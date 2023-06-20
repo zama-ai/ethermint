@@ -473,7 +473,8 @@ func (e *PublicAPI) GetTransactionLogs(txHash common.Hash) ([]*ethtypes.Log, err
 // SignTypedData signs EIP-712 conformant typed data
 func (e *PublicAPI) SignTypedData(address common.Address, typedData apitypes.TypedData) (hexutil.Bytes, error) {
 	e.logger.Debug("eth_signTypedData", "address", address.Hex(), "data", typedData)
-	return e.backend.SignTypedData(address, typedData)
+	e.logger.Info("eth_signTypedData not supported")
+	return hexutil.Bytes{}, errors.New("not supported")
 }
 
 // FillTransaction fills the defaults (nonce, gas, gasPrice or 1559 fields)
