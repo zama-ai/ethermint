@@ -38,6 +38,16 @@ parent:
   </a>
 </div>
 
+## fhEVM
+This repository is a fork of Ethermint v0.19.3 (https://github.com/evmos/ethermint/tree/v0.19.3).
+We expand on version v0.19.3 by adding functionalities that allow smart contracts to compute on encrypted data.
+
+It is not intended to be used directly as a standalone software. Instead, it is used as a dependency/library in an Evmos-based fhEVM chain.
+
+The following is the original Ethermint README.
+
+## Ethermint
+
 Ethermint is a scalable and interoperable Ethereum library, built on Proof-of-Stake with fast-finality using the [Cosmos SDK](https://github.com/cosmos/cosmos-sdk/) which runs on top of [Tendermint Core](https://github.com/tendermint/tendermint) consensus engine.
 
 **Note**: Requires [Go 1.18+](https://golang.org/dl/)
