@@ -1,4 +1,4 @@
-module github.com/evmos/ethermint
+module github.com/zama-ai/ethermint
 
 go 1.18
 
@@ -166,6 +166,6 @@ replace (
 	google.golang.org/grpc => google.golang.org/grpc v1.33.2
 )
 
-replace github.com/confio/ics23/go => github.com/cosmos/cosmos-sdk/ics23/go v0.8.0
+replace github.com/confio/ics23/go => ../ethermint
 
 replace github.com/ethereum/go-ethereum v1.10.19 => ../go-ethereum
